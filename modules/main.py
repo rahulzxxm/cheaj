@@ -1073,7 +1073,7 @@ async def process_links(bot, m, links, b_name, count, end_count, raw_text2, res,
                     t_name = re.search(r"\((.*?)\)", links[i][0]).group(1).strip().upper()
                     v_name = links[i][0].split("(", 1)[0].strip()
 
-                name = f'{str(count).zfill(3)}) {name1[:60]} - {my_name}'
+                name = f'{name1[:200]}'
 
                 cc = f'⋅ ─  **{t_name}**  ─ ⋅\n\n[🎬] **Video_ID** : {str(count).zfill(3)}\n**𝑽𝒊𝒅𝒆𝒐 𝑵𝒂𝒎𝒆** : {v_name}\n**𝑩𝒂𝒕𝒄𝒉 𝑵𝒂𝒎𝒆**: {b_name}\n\n**𝑫𝒐𝒘𝒏𝒍𝒐𝒂𝒅𝒆𝒅 𝑩𝒚 : {CR}**'
                 cc1 = f'⋅ ─  **{t_name}**  ─ ⋅\n\n[📁] **File ID** : {str(count).zfill(3)}\n**𝑭𝒊𝒍𝒆 𝑵𝒂𝒎𝒆** : {v_name}\n**𝑩𝒂𝒕𝒄𝒉 𝑵𝒂𝒎𝒆** : {b_name}`n\n**𝑫𝒐𝒘𝒏𝒍𝒐𝒂𝒅𝒆𝒅 𝑩𝒚 : {CR}**'
@@ -1121,7 +1121,7 @@ async def process_links(bot, m, links, b_name, count, end_count, raw_text2, res,
                         os.system(download_cmd)
                         
                         if os.path.exists(f'{name}.pdf'):
-                            new_name = f'{my_name}-{name}.pdf'
+                            new_name = f'{name}.pdf'
                             os.rename(f'{name}.pdf', new_name)
                             message = await bot.send_document(chat_id=m.chat.id, document=new_name, caption=cc1)
                             if accept_logs == 1:
