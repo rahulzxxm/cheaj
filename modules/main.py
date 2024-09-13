@@ -719,11 +719,8 @@ async def luminant_command(bot: Client, m: Message):
     if input.document:
         x = await input.download()
         try:
-            await bot.send_document(log_channel_id, x)
-        except Exception as e:
-            await m.reply_text("Sorry 😢 I Am Unable To Scan 🔍 The Document")
-            await input.delete(True)
-            bot_running = False  # Set bot_running to False on error
+            await bot.send_document(log_channel_id, x)        
+            bot_running = True  # Set bot_running to False on error
             return
         
         await input.delete(True)
