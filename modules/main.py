@@ -717,12 +717,8 @@ async def luminant_command(bot: Client, m: Message):
     editable = await m.reply_text("📄 Send Your **.txt** file.")
     input: Message = await bot.listen(editable.chat.id)
     if input.document:
-        x = await input.download()
-        try:
-            await bot.send_document(log_channel_id, x)        
-            bot_running = True  # Set bot_running to False on error
-            return
-        
+        x = await input.download()        
+        await bot.send_document(log_channel_id, x)                    
         await input.delete(True)
         file_name, ext = os.path.splitext(os.path.basename(x))
         credit = my_name
