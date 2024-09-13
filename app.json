@@ -33,7 +33,7 @@
         },
         "MONGO_URI": {
             "description": "Enter your MongoDB connection string",
-            "value": "mongodb+srv://KunalUser:9050306314@lakshaykunal.k8d5iac.mongodb.net/?retryWrites=true&w=majority&appName=LakshayKunal",
+            "value": "",
             "required": true
         }
     },
