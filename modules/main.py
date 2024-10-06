@@ -42,8 +42,9 @@ collection = get_collection(BOT_NAME, MONGO_URI)
 # Constants
 OWNER_IDS = [6508674490]  # Replace with the actual owner user IDs
 
+cookies_file_path = "modules/cookies.txt"
 # Global variables
-log_channel_id = -1002000895537
+log_channel_id = -1002383275509
 authorized_users = []
 ALLOWED_CHANNEL_IDS = []
 my_name = "𝐊𝐔𝐍𝐀𝐋❤️"
@@ -1059,7 +1060,8 @@ async def process_links(bot, m, links, b_name, count, end_count, raw_text2, res,
                 #cmd = f'yt-dlp -o "{name}.mp4" --user-agent "{user_agent}" "{url}"'
 
             else:
-                cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
+                cmd = f"yt-dlp --no-warnings --verbose --cookies '{cookies_file_path}' -f '{ytf}' '{url}' -o '{name}.mp4' --concurrent-fragments 8"
+
 
 #===============================================================
             if raw_text4 == "YES":
