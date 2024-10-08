@@ -1060,7 +1060,7 @@ async def process_links(bot, m, links, b_name, count, end_count, raw_text2, res,
                 #cmd = f'yt-dlp -o "{name}.mp4" --user-agent "{user_agent}" "{url}"'
 
             else:
-                cmd = f"yt-dlp --verbose --cookies '{cookies_file_path}' -f '{ytf}' '{url}' -o '{name}.mp4' --concurrent-fragments 8"
+                cmd = f"yt-dlp --verbose -f '{ytf}' '{url}' -o '{name}.mp4' --no-check-certificate --retry 5 --retries 10 --concurrent-fragments 8"
 
 
 
